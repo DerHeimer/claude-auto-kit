@@ -1,6 +1,6 @@
 ---
 name: project-pipeline
-description: Step-by-step build pipeline for any new web, UI, 3D or video project. Use at the start of every new project, when the user says "new project", "start project", "/project-pipeline", or asks to build a website, landing page, dashboard, web app, game page, 3D scene or motion video from scratch. Orchestrates design-taste-frontend, impeccable, DESIGN.md, GSAP, playwright-cli, img2threejs, the motion graphics skill and Remotion in the right order.
+description: Step-by-step build pipeline for any new web, UI, 3D or video project. Use at the start of every new project, when the user says "new project", "start project", "/project-pipeline", or asks to build a website, landing page, dashboard, web app, game page, 3D scene or motion video from scratch. Orchestrates design-taste-frontend, impeccable, hallmark, DESIGN.md, GSAP, Emil Kowalski's motion skills, playwright-cli, break-ui, web-design-guidelines, web-security-checklist, humanizer, img2threejs, the motion graphics skill and Remotion in the right order.
 ---
 
 # Project Pipeline
@@ -31,6 +31,8 @@ If the user said not to ask, or is clearly away, pick sensible defaults, state t
 
 Pick a concrete named design style instead of "modern" (e.g. neo-brutalism, swiss, editorial, glassmorphism, bento grid, synthwave, claymorphism, wabi-sabi, Y2K, cyberpunk). Define: one font pairing, background color, one accent color, corner radius, shadow style. Never default to purple gradients or centered-hero + three-card grids.
 
+For page layouts, load `hallmark` and use its macrostructure catalog to pick a page structure that fits the brief (not the usual hero → 3 features → CTA rhythm). Keep the Phase 1 style decision; if hallmark's theme picker disagrees, mention it as the alternative.
+
 ## Phase 2 — DESIGN.md (WEB)
 
 If the project root has no DESIGN.md:
@@ -43,9 +45,11 @@ All later UI work must follow DESIGN.md.
 
 Load and follow the `design-taste-frontend` skill and the `impeccable` skill while building. Use realistic copy, never lorem ipsum. Default stack: single index.html with vanilla JS for small things; Vite + React only when the project needs state across many views or the user asks for it. Charts: BKlit UI if it fits, Recharts as fallback.
 
+Also load `emil-design-eng` for component-level polish (states, details, feel). When a library choice comes up (toasts, OTP, command menu, drag and drop, virtualization …), suggest the user runs `/auto-kit:pick-ui-library` (it only starts on explicit invocation). Run every piece of visible copy through `humanizer` before it ships.
+
 ## Phase 4 — Motion (WEB)
 
-Add animation only where it helps: entrance of hero, scroll reveals, state changes. Use GSAP + ScrollTrigger from cdnjs for anything beyond simple CSS transitions. Always respect `prefers-reduced-motion`. Skip this phase for tools, dashboards and forms unless the user wants animation.
+Add animation only where it helps: entrance of hero, scroll reveals, state changes. Use GSAP + ScrollTrigger from cdnjs for anything beyond simple CSS transitions. Always respect `prefers-reduced-motion`. For each animation, follow `animate` (decides whether it should animate at all, curve, duration, interruption). For drag, swipe, sheets, springs or other gesture-driven UI, load `apple-design`. With more than a few animations or anything scroll-linked, check against `animation-performance`. Skip this phase for tools, dashboards and forms unless the user wants animation.
 
 ## Phase 5 — Test (WEB, 3D)
 
@@ -54,10 +58,13 @@ Use `playwright-cli`:
 2. Full-page screenshots at 375, 768 and 1440 px into `./screenshots`.
 3. Review them yourself: overflow, overlap, tiny text, tap targets under 44px, broken line breaks, console errors.
 4. Fix everything, re-screenshot, confirm.
+5. Run `break-ui` on every component that shows data (long names, empty states, huge numbers, non-Latin text) and fix what breaks.
+6. Run `web-design-guidelines` over the UI files and fix the findings.
+7. If the project has a backend, database, login, forms, API keys, paid API calls or gets hosted publicly: run `web-security-checklist` and fix every FAIL.
 
 ## Phase 6 — Polish (WEB)
 
-Run impeccable's audit/polish pass over the finished UI and fix what it finds. Then report a short before/after list.
+Run impeccable's audit/polish pass and `hallmark audit` over the finished UI and fix what they find. If Phase 4 ran, finish with `find-animation-opportunities` and apply only clear wins. `review-animations` can only be started by the user — tell them to run `/auto-kit:review-animations` for a strict motion review. Then report a short before/after list.
 
 ## Phase 7 — 3D asset (3D only)
 
@@ -68,7 +75,7 @@ If a reference image exists in the project, use `/img2threejs` to rebuild it as 
 - Short design-led motion graphics, kinetic text, TikTok/Reel clips with SFX → the motion graphics skill (Miftahul).
 - Data-driven or template videos (charts, bar races, swappable JSON data) → Remotion best practices skill.
 
-Always: 9:16 1080x1920 unless told otherwise. Show a storyboard with second-by-second timings first and wait for OK before rendering. Only generated or royalty-free audio. Render to `./out/`.
+Always: 9:16 1080x1920 unless told otherwise. Show a storyboard with second-by-second timings first and wait for OK before rendering. Only generated or royalty-free audio. Render to `./out/`. Run the script, on-screen text and caption through `humanizer` before rendering.
 
 ## Rules
 
@@ -82,5 +89,8 @@ Skills below don't own a phase. In Phase 0, go through each row and list it unde
 
 | Skill | Plugs into | When to use |
 |---|---|---|
+| improve-animations | Phase 6 | Existing project (not greenfield) with a lot of motion code — audit it and plan improvements before touching it |
+| web-security-checklist | Phase 5 | Any time the project stores data, has accounts, calls paid APIs or is put online — even if Phase 5 is otherwise skipped |
+| humanizer | Any | Any text that gets published: site copy, README, video scripts, captions, posts |
 
 <!-- Maintained by the weekly automated task. New skills that fit an existing phase are wired into that phase's text; everything else gets a row here. -->
