@@ -1,6 +1,6 @@
 {
   "name": "auto-kit",
-  "description": "Personal skill kit: project-pipeline plus curated skills.",
+  "description": "Self-updating skill kit: project-pipeline plus skills collected by a weekly automated check.",
   "author": {
     "name": "DerHeimer"
   },
