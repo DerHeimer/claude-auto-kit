@@ -103,3 +103,5 @@ Skills below don't own a phase. In Phase 0, go through each row and list it unde
 | requesting-code-review | Phase 6 | Larger codebases or anything with a backend — get a structured review before calling it done |
 
 <!-- Maintained by the weekly automated task. New skills that fit an existing phase are wired into that phase's text; everything else gets a row here. -->
+
+License: CC-BY-NC-SA-4.0 — © DerHeimer, https://github.com/DerHeimer/claude-auto-kit (see NOTICE.md)

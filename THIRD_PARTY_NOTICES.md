@@ -1,6 +1,6 @@
 # Third-party notices
 
-Several skills in `plugins/auto-kit/skills/` are copies of open-source skills. Each copied `SKILL.md` ends with a `Source:` line naming the upstream repository and commit. Their licenses are reproduced below.
+Several skills in `plugins/auto-kit/skills/` are copies of open-source skills. Each copied `SKILL.md` ends with a `Source:` line naming the upstream repository and commit. Their licenses are reproduced below. Everything else in this repository is licensed CC BY-NC-SA 4.0 — see NOTICE.md and LICENSE.
 
 ## https://github.com/emilkowalski/skill
 

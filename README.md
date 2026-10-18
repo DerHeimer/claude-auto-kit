@@ -32,6 +32,12 @@ flowchart LR
 
 On GitHub, click **Use this template → Create a new repository** (or **Fork**). Pick any name, e.g. `claude-auto-kit`. A template copy can be private; if it is, git on your PC needs to be signed in to GitHub so Claude Code can fetch it.
 
+The project is licensed [CC BY-NC-SA 4.0](LICENSE): free for your own non-commercial use, with credit. Keep [`NOTICE.md`](NOTICE.md) and put this line at the top of your copy's README:
+
+```markdown
+> Based on [claude-auto-kit](https://github.com/DerHeimer/claude-auto-kit) by DerHeimer, licensed under [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/).
+```
+
 ### 2. Point it at your account
 
 Edit two files in your copy and replace the owner with your GitHub username:
@@ -111,7 +117,9 @@ A fixed sequence of phases for web, UI, 3D and video projects. Claude classifies
 
 ## License
 
-MIT for everything written for this repo — see [LICENSE](LICENSE). Copied skills keep their original licenses, listed with full text in [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).
+claude-auto-kit was created by **DerHeimer**. Everything written for this repo is licensed [CC BY-NC-SA 4.0](LICENSE): copy and adapt it for non-commercial use, credit the original as described in [NOTICE.md](NOTICE.md), and share changes under the same license. No commercial use.
+
+Copied skills keep their original licenses, listed with full text in [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md). [NOTICE.md](NOTICE.md) says which part is under which license.
 
 ---
 

@@ -57,3 +57,7 @@ This is the prompt the weekly Claude task runs. Copy it, replace the placeholder
 8. Report: first line "X new, Y skills added, Z for you to do", then "For you to do"
    (numbered, commands in code blocks), "Added", "Skipped", commit link, next run.
 ```
+
+---
+
+License: CC-BY-NC-SA-4.0 — © DerHeimer, https://github.com/DerHeimer/claude-auto-kit (see NOTICE.md)
