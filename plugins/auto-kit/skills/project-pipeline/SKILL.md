@@ -1,0 +1,86 @@
+---
+name: project-pipeline
+description: Step-by-step build pipeline for any new web, UI, 3D or video project. Use at the start of every new project, when the user says "new project", "start project", "/project-pipeline", or asks to build a website, landing page, dashboard, web app, game page, 3D scene or motion video from scratch. Orchestrates design-taste-frontend, impeccable, DESIGN.md, GSAP, playwright-cli, img2threejs, the motion graphics skill and Remotion in the right order.
+---
+
+# Project Pipeline
+
+You run new projects through fixed phases. Not every phase applies to every project — decide per project, say which phases you will run and which you skip (one line each, with the reason), then go.
+
+## Phase 0 — Classify (always)
+
+Read the user's request and any existing files. Classify the project as one or more of:
+
+- **WEB** — website, landing page, dashboard, web app, browser game UI
+- **3D** — needs a 3D object or scene in the browser
+- **VIDEO** — motion graphic, TikTok/Reel, animated explainer, data video
+
+Then post a short plan in this exact shape and wait for "ok" (or changes) before building:
+
+```
+Type: WEB (+3D)
+Phases: 1 Style → 2 DESIGN.md → 3 Build → 4 Motion → 5 Test → 6 Polish
+Skipped: 7 3D-asset (not needed), 8 Video (not a video)
+Style proposal: <1 style + 1 alternative, one line each>
+Model note: <say if this project would benefit from switching to Opus / high effort>
+```
+
+If the user said not to ask, or is clearly away, pick sensible defaults, state them at the top, and continue.
+
+## Phase 1 — Style (WEB, VIDEO)
+
+Pick a concrete named design style instead of "modern" (e.g. neo-brutalism, swiss, editorial, glassmorphism, bento grid, synthwave, claymorphism, wabi-sabi, Y2K, cyberpunk). Define: one font pairing, background color, one accent color, corner radius, shadow style. Never default to purple gradients or centered-hero + three-card grids.
+
+## Phase 2 — DESIGN.md (WEB)
+
+If the project root has no DESIGN.md:
+- If a real brand look fits (Linear, Stripe, Vercel, Notion, …), download it from `https://getdesign.md/<brand>/design-md` (fallback: GitHub VoltAgent/awesome-design-md).
+- Otherwise write a short DESIGN.md yourself from the Phase 1 decisions (colors, type scale, spacing scale, radius, shadows, component rules, do's and don'ts).
+
+All later UI work must follow DESIGN.md.
+
+## Phase 3 — Build (WEB)
+
+Load and follow the `design-taste-frontend` skill and the `impeccable` skill while building. Use realistic copy, never lorem ipsum. Default stack: single index.html with vanilla JS for small things; Vite + React only when the project needs state across many views or the user asks for it. Charts: BKlit UI if it fits, Recharts as fallback.
+
+## Phase 4 — Motion (WEB)
+
+Add animation only where it helps: entrance of hero, scroll reveals, state changes. Use GSAP + ScrollTrigger from cdnjs for anything beyond simple CSS transitions. Always respect `prefers-reduced-motion`. Skip this phase for tools, dashboards and forms unless the user wants animation.
+
+## Phase 5 — Test (WEB, 3D)
+
+Use `playwright-cli`:
+1. Open the page (local file or dev server).
+2. Full-page screenshots at 375, 768 and 1440 px into `./screenshots`.
+3. Review them yourself: overflow, overlap, tiny text, tap targets under 44px, broken line breaks, console errors.
+4. Fix everything, re-screenshot, confirm.
+
+## Phase 6 — Polish (WEB)
+
+Run impeccable's audit/polish pass over the finished UI and fix what it finds. Then report a short before/after list.
+
+## Phase 7 — 3D asset (3D only)
+
+If a reference image exists in the project, use `/img2threejs` to rebuild it as a procedural Three.js model. Works well for hard-surface objects, poorly for faces and characters — say so if the image is organic. Embed it with orbit controls and soft lighting, then run Phase 5 on the page.
+
+## Phase 8 — Video (VIDEO only)
+
+- Short design-led motion graphics, kinetic text, TikTok/Reel clips with SFX → the motion graphics skill (Miftahul).
+- Data-driven or template videos (charts, bar races, swappable JSON data) → Remotion best practices skill.
+
+Always: 9:16 1080x1920 unless told otherwise. Show a storyboard with second-by-second timings first and wait for OK before rendering. Only generated or royalty-free audio. Render to `./out/`.
+
+## Rules
+
+- Checkpoint after Phase 0 always; after Phase 3 show the result (screenshot) before Motion/Test unless the user said to run straight through.
+- If a skill or tool is missing, say which one and continue with the best fallback — never stall.
+- Keep narration minimal. At the end: what was built, where the files are, what was skipped.
+
+## Extra skills (check every project)
+
+Skills below don't own a phase. In Phase 0, go through each row and list it under "Phases" (with the phase it plugs into) if the "when" condition matches this project, otherwise under "Skipped" with a short reason. Use every matching one — not all of them blindly.
+
+| Skill | Plugs into | When to use |
+|---|---|---|
+
+<!-- Maintained by the weekly automated task. New skills that fit an existing phase are wired into that phase's text; everything else gets a row here. -->

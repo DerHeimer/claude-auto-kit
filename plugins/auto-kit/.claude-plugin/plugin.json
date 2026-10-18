@@ -1,0 +1,8 @@
+{
+  "name": "auto-kit",
+  "description": "Personal skill kit: project-pipeline plus curated skills.",
+  "author": {
+    "name": "DerHeimer"
+  },
+  "repository": "https://github.com/DerHeimer/claude-auto-kit"
+}

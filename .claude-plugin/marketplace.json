@@ -1,0 +1,13 @@
+{
+  "name": "auto-kit",
+  "owner": {
+    "name": "DerHeimer"
+  },
+  "plugins": [
+    {
+      "name": "auto-kit",
+      "source": "./plugins/auto-kit",
+      "description": "Personal skill kit: project-pipeline plus curated skills. Maintained by a weekly automated task."
+    }
+  ]
+}
