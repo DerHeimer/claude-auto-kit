@@ -1,6 +1,6 @@
 ---
 name: project-pipeline
-description: Step-by-step build pipeline for any new web, UI, 3D or video project. Use at the start of every new project, when the user says "new project", "start project", "/project-pipeline", or asks to build a website, landing page, dashboard, web app, game page, 3D scene or motion video from scratch. Orchestrates design-taste-frontend, impeccable, hallmark, DESIGN.md, GSAP, Emil Kowalski's motion skills, playwright-cli, break-ui, web-design-guidelines, web-security-checklist, humanizer, img2threejs, the motion graphics skill and Remotion in the right order.
+description: Step-by-step build pipeline for any new web, UI, 3D or video project. Use at the start of every new project, when the user says "new project", "start project", "/project-pipeline", or asks to build a website, landing page, dashboard, web app, game page, 3D scene or motion video from scratch. Orchestrates superpowers (brainstorming, planning, TDD, debugging, verification), ui-ux-pro-max, diagram-design, design-taste-frontend, impeccable, hallmark, DESIGN.md, GSAP, Emil Kowalski's motion skills, playwright-cli, break-ui, web-design-guidelines, web-security-checklist, humanizer, img2threejs, the motion graphics skill and Remotion in the right order.
 ---
 
 # Project Pipeline
@@ -27,9 +27,11 @@ Model note: <say if this project would benefit from switching to Opus / high eff
 
 If the user said not to ask, or is clearly away, pick sensible defaults, state them at the top, and continue.
 
+For anything bigger than a single static page: before posting the plan, run superpowers `brainstorming` (keep it short — a few targeted questions, not an interview). If the build has several steps or views, follow up with `writing-plans` and execute the plan with `executing-plans`.
+
 ## Phase 1 — Style (WEB, VIDEO)
 
-Pick a concrete named design style instead of "modern" (e.g. neo-brutalism, swiss, editorial, glassmorphism, bento grid, synthwave, claymorphism, wabi-sabi, Y2K, cyberpunk). Define: one font pairing, background color, one accent color, corner radius, shadow style. Never default to purple gradients or centered-hero + three-card grids.
+Pick a concrete named design style instead of "modern" (e.g. neo-brutalism, swiss, editorial, glassmorphism, bento grid, synthwave, claymorphism, wabi-sabi, Y2K, cyberpunk). Define: one font pairing, background color, one accent color, corner radius, shadow style. Back these choices with `ui-ux-pro-max` (search its styles, palettes and font pairings for the product type) instead of picking from memory. Never default to purple gradients or centered-hero + three-card grids.
 
 For page layouts, load `hallmark` and use its macrostructure catalog to pick a page structure that fits the brief (not the usual hero → 3 features → CTA rhythm). Keep the Phase 1 style decision; if hallmark's theme picker disagrees, mention it as the alternative.
 
@@ -46,6 +48,8 @@ All later UI work must follow DESIGN.md.
 Load and follow the `design-taste-frontend` skill and the `impeccable` skill while building. Use realistic copy, never lorem ipsum. Default stack: single index.html with vanilla JS for small things; Vite + React only when the project needs state across many views or the user asks for it. Charts: BKlit UI if it fits, Recharts as fallback.
 
 Also load `emil-design-eng` for component-level polish (states, details, feel). When a library choice comes up (toasts, OTP, command menu, drag and drop, virtualization …), suggest the user runs `/auto-kit:pick-ui-library` (it only starts on explicit invocation). Run every piece of visible copy through `humanizer` before it ships.
+
+For app logic (state, data handling, calculations, game rules — not pure layout), follow superpowers `test-driven-development`. On any bug, test failure or unexpected behavior, switch to `systematic-debugging` before proposing a fix.
 
 ## Phase 4 — Motion (WEB)
 
@@ -81,6 +85,9 @@ Always: 9:16 1080x1920 unless told otherwise. Show a storyboard with second-by-s
 
 - Checkpoint after Phase 0 always; after Phase 3 show the result (screenshot) before Motion/Test unless the user said to run straight through.
 - If a skill or tool is missing, say which one and continue with the best fallback — never stall.
+- Before saying anything is done, fixed or working, run superpowers `verification-before-completion`.
+- Skip superpowers' git skills (`using-git-worktrees`, `finishing-a-development-branch`) unless the project already uses git.
+- superpowers, ui-ux-pro-max and diagram-design come from separate plugins installed on this machine; if one is missing, say so and continue.
 - Keep narration minimal. At the end: what was built, where the files are, what was skipped.
 
 ## Extra skills (check every project)
@@ -92,5 +99,7 @@ Skills below don't own a phase. In Phase 0, go through each row and list it unde
 | improve-animations | Phase 6 | Existing project (not greenfield) with a lot of motion code — audit it and plan improvements before touching it |
 | web-security-checklist | Phase 5 | Any time the project stores data, has accounts, calls paid APIs or is put online — even if Phase 5 is otherwise skipped |
 | humanizer | Any | Any text that gets published: site copy, README, video scripts, captions, posts |
+| diagram-design | Phase 3 / docs | The project needs an architecture, flow, timeline, ER, sequence or other technical diagram (on the page, in a README or for planning) |
+| requesting-code-review | Phase 6 | Larger codebases or anything with a backend — get a structured review before calling it done |
 
 <!-- Maintained by the weekly automated task. New skills that fit an existing phase are wired into that phase's text; everything else gets a row here. -->
