@@ -94,8 +94,22 @@ For every new project (website, web app, dashboard, 3D scene, motion video), sta
    - Checklists and prompts from posts are rewritten as skills in Claude's own words.
    - Plugins, MCP servers and CLI tools are never added automatically, because they run code on your machine. They show up as ready-to-paste commands in the weekly report.
 4. **Wire it up.** Every new skill is added to [`project-pipeline`](plugins/auto-kit/skills/project-pipeline/SKILL.md) — either inside the phase where it belongs or in its "Extra skills" table.
-5. **Ship it.** The task validates the plugin, commits to `main`, tags the mymind items `claude-checked` with a short note, and sends you a report: what was added, what was skipped and why, and what's left for you to do.
-6. **Use it.** Claude Code auto-updates the plugin. Start any project and `project-pipeline` picks the skills that fit it — and only those.
+5. **Ship it.** The task validates the plugin, commits to `main`, tags each mymind item `claude-checked` plus one status tag and a few topic tags (see below) with a short note, and sends you a report: what was added, what was skipped and why, and what's left for you to do.
+6. **Clean up.** Items that are fully handled (`claude-done`) are listed in the next report as ready to delete; reply "delete" and Claude removes them from mymind (they stay in mymind's trash for 30 days). Items waiting for you (`claude-todo`, `claude-unclear`) are listed again every week until you say they're done. Everything else stays.
+7. **Use it.** Claude Code auto-updates the plugin. Start any project and `project-pipeline` picks the skills that fit it — and only those.
+
+### Tags
+
+Every checked item gets `claude-checked`, exactly one status tag and one or more topic tags.
+
+| Status | Meaning | What happens |
+|---|---|---|
+| `claude-done` | Fully handled: skill added to the repo, or everything it shows is already installed | Offered for deletion in the next run |
+| `claude-todo` | Needs you: a plugin, MCP server, CLI tool or connector to install | Listed under "For you to do" every week until you report it installed (then it becomes `claude-done`) |
+| `claude-unclear` | The tool couldn't be identified | Listed every week until you say what was meant |
+| `claude-keep` | Worth keeping, nothing to install: general knowledge, inspiration, non-Claude tools | Stays, no reminders |
+
+Topic tags: `knowledge` (general AI know-how), `design`, `video`, `security`, `coding`, `ai-tool` (a non-Claude AI app or service), `offtopic`.
 
 ## What `project-pipeline` does
 
