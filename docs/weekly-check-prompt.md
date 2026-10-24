@@ -48,8 +48,8 @@ This is the prompt the weekly Claude task runs. Copy it, replace the placeholder
    E) Not relevant, or a duplicate of <LOCAL_SKILLS> or of anything already in the repo
       → report only.
    Wire every new skill from A and D into project-pipeline: add a row to its "Skill bundles"
-   table (phase, project types it is mandatory for, the only valid skip reason) and add it
-   to that phase's text. Several items about the same tool = one skill.
+   table (phase, project types, mode) and add it to that phase's text. Skills that impose
+   their own look (themes, brand styles) get mode "choose"; quality/test skills "always". Several items about the same tool = one skill.
 
 6. Privacy: no personal names or personal details in anything public (file names,
    descriptions, commits, README). Check before pushing.

@@ -93,10 +93,10 @@ For every new project (website, web app, dashboard, 3D scene, motion video), sta
    - Skills with an open license (MIT, Apache-2.0 …) are copied into `plugins/auto-kit/skills/` — Markdown only, no scripts.
    - Checklists and prompts from posts are rewritten as skills in Claude's own words.
    - Plugins, MCP servers and CLI tools are never added automatically, because they run code on your machine. They show up as ready-to-paste commands in the weekly report.
-4. **Wire it up.** Every new skill is added to [`project-pipeline`](plugins/auto-kit/skills/project-pipeline/SKILL.md) — as a row in its "Skill bundles" table (phase, project types, the only valid skip reason) and in the text of its phase.
+4. **Wire it up.** Every new skill is added to [`project-pipeline`](plugins/auto-kit/skills/project-pipeline/SKILL.md) — as a row in its "Skill bundles" table (phase, project types, mode: always / choose / if) and in the text of its phase.
 5. **Ship it.** The task validates the plugin, commits to `main`, tags each mymind item `claude-checked` plus one status tag and a few topic tags (see below) with a short note, and sends you a report: what was added, what was skipped and why, and what's left for you to do.
 6. **Clean up.** Only items whose content is 100 % installed (`claude-installed`) are listed in the next report as ready to delete; reply "delete" and Claude removes them from mymind (they stay in mymind's trash for 30 days). "Checked" is never enough on its own. Items waiting for you (`claude-todo`, `claude-unclear`) are listed again every week until you say they're installed. Everything else stays.
-7. **Use it.** Claude Code auto-updates the plugin. Start any project and `project-pipeline` classifies it and runs every skill in the matching bundle — a website gets every web skill, but no 3D or video skills.
+7. **Use it.** Claude Code auto-updates the plugin. Start any project and `project-pipeline` classifies it, runs the quality and test skills for that type, and offers three different style directions to pick from — a website gets web skills, but no 3D or video skills, and no single design skill makes every site look the same.
 
 ### Tags
 
@@ -113,7 +113,7 @@ Topic tags: `knowledge` (general AI know-how), `design`, `video`, `security`, `c
 
 ## What `project-pipeline` does
 
-A fixed sequence of phases for web, UI, 3D, video and plain code projects. Claude classifies the project, then uses **every** skill in the bundle for that type (WEB, 3D, VIDEO, CODE) — nothing from a bundle is dropped on a whim, and nothing from an unrelated bundle is pulled in. Phases: classify → style → design system file → build → motion → test → polish, plus 3D-asset and video phases. A skill ledger in the plan and in the final report shows where each skill was used; the only allowed skip reasons are listed next to the skill. If a skill isn't installed, Claude says so and carries on.
+A fixed sequence of phases for web, UI, 3D, video and plain code projects. Claude classifies the project (WEB, 3D, VIDEO, CODE) and only uses skills relevant to that type. Quality, test and process skills always run. Look-defining skills — layout catalogs, themes, brand styles, signature aesthetics — are never applied by default: Claude offers three clearly different style directions (checking sibling projects so it doesn't repeat itself) and you pick one. Phases: classify → style → design system file → build → motion → test → polish, plus 3D-asset and video phases. If a skill isn't installed, Claude says so and carries on.
 
 ## Safety model
 

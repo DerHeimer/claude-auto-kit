@@ -1,11 +1,17 @@
 ---
 name: project-pipeline
-description: Step-by-step build pipeline for any new project. Use at the start of every new project, when the user says "new project", "start project", "/project-pipeline", or asks to build a website, landing page, dashboard, web app, game page, 3D scene, motion video, script, bot or tool from scratch. Classifies the project as WEB, 3D, VIDEO and/or CODE and then uses every skill in the matching bundle — superpowers, ui-ux-pro-max, diagram-design, design-taste-frontend, impeccable, hallmark, DESIGN.md, GSAP, Emil Kowalski's motion skills, apple-design, playwright-cli, break-ui, web-design-guidelines, web-security-checklist, humanizer, img2threejs, the motion graphics skill and Remotion — in the right order, and none from unrelated bundles.
+description: Step-by-step build pipeline for any new project. Use at the start of every new project, when the user says "new project", "start project", "/project-pipeline", or asks to build a website, landing page, dashboard, web app, game page, 3D scene, motion video, script, bot or tool from scratch. Classifies the project as WEB, 3D, VIDEO and/or CODE, always runs the quality, test and process skills for that type, and offers the look-defining design skills as distinct style directions for the user to pick — so no single skill makes every project look the same. Orchestrates superpowers, ui-ux-pro-max, diagram-design, design-taste-frontend, impeccable, hallmark, DESIGN.md, GSAP, Emil Kowalski's motion skills, apple-design, playwright-cli, break-ui, web-design-guidelines, web-security-checklist, humanizer, img2threejs, the motion graphics skill and Remotion.
 ---
 
 # Project Pipeline
 
-You run new projects through fixed phases. The project type decides which **skill bundle** applies (see "Skill bundles" below). Inside a matching bundle you use **every** skill. A bundle skill may only be left out for the exact reason written in its "Only skip if" column — "not needed", "simple project" or "to save time" are not valid reasons. Skills from bundles that don't match the project are not used at all: a website gets every web skill, but no 3D model and no video.
+You run new projects through fixed phases. The project type decides which skills are relevant (see "Skill bundles" below). Skills from bundles that don't match are not used: a website gets web skills, but no 3D model and no video.
+
+Inside a matching bundle there are three modes:
+
+- **always** — quality, testing and process skills. They catch problems but don't decide what the result looks like, so they run on every matching project.
+- **choose** — look-defining skills (layout catalogs, themes, brand systems, signature aesthetics). Used every time, they would make every project look alike. So they are never applied by default: you offer them inside distinct style directions in Phase 1 and the user picks. Only the picked direction shapes the design.
+- **if** — only when the condition in the table is true.
 
 ## Phase 0 — Classify (always)
 
@@ -20,49 +26,53 @@ A project can have several types (e.g. WEB + CODE for a web app with a separate 
 
 For anything bigger than a single static page with a complete brief: before posting the plan, run superpowers `brainstorming` (keep it short — a few targeted questions, not an interview).
 
-Then post the plan in this exact shape and wait for "ok" (or changes) before building:
+Then post the plan in this shape and wait for "ok" (or changes) before building:
 
 ```
-Type: WEB (+3D)
-Phases: 1 Style → 2 DESIGN.md → 3 Build → 4 Motion → 5 Test → 6 Polish → 7 3D-asset
-Skill ledger (WEB + 3D bundle):
-  0 brainstorming · writing-plans · executing-plans
-  1 ui-ux-pro-max · hallmark
-  2 DESIGN.md
-  3 design-taste-frontend · impeccable · emil-design-eng · humanizer · test-driven-development
-  4 GSAP · animate · apple-design · animation-performance
-  5 playwright-cli · break-ui · web-design-guidelines · web-security-checklist
-  6 impeccable audit · hallmark audit · apple-design review · find-animation-opportunities · requesting-code-review
-  7 img2threejs
-  always: systematic-debugging (on bugs) · verification-before-completion
-  skipped by rule: improve-animations (new project, not an existing one)
-  tell user: /auto-kit:pick-ui-library, /auto-kit:review-animations
-Not in this project's bundles: motion graphics skill, Remotion (not a video)
-Style proposal: <1 style + 1 alternative, one line each>
+Type: WEB
+Phases: 1 Style → 2 DESIGN.md → 3 Build → 4 Motion → 5 Test → 6 Polish
+Always: brainstorming · writing-plans · ui-ux-pro-max · design-taste-frontend · impeccable ·
+        emil-design-eng · humanizer · animate · animation-performance · playwright-cli ·
+        break-ui · web-design-guidelines · web-security-checklist · hallmark audit ·
+        requesting-code-review · verification-before-completion
+If: test-driven-development (has app logic) · diagram-design (no — one component) · GSAP (rich motion picked)
+Choose in Phase 1: see the style directions below
+Not in this project's bundles: img2threejs, motion graphics skill, Remotion
+Tell user: /auto-kit:pick-ui-library, /auto-kit:review-animations
+
+Style directions — pick one (or mix):
+A) <named style> · layout: <hallmark macrostructure or own> · fonts · palette · motion: none/subtle/rich · look skills: <e.g. hallmark editorial genre>
+B) <clearly different style> · … · look skills: <e.g. apple-design aesthetic>
+C) <clearly different again> · … · look skills: <e.g. none — own direction from ui-ux-pro-max>
 Model note: <say if this project would benefit from switching to Opus / high effort>
 ```
 
-Build the ledger by going through the "Skill bundles" table row by row. Every row whose bundle matches must appear either in a phase line or under "skipped by rule" with its listed reason. If the build has several steps or views, `writing-plans` writes the plan and `executing-plans` runs it.
+Build the "Always" and "If" lines by going through the "Skill bundles" table row by row. If the build has several steps or views, `writing-plans` writes the plan and `executing-plans` runs it.
 
-If the user said not to ask, or is clearly away, pick sensible defaults, state them at the top, and continue.
+If the user said not to ask, or is clearly away, pick the direction that fits the brief best, state it at the top, and continue.
 
 ## Phase 1 — Style (WEB, VIDEO)
 
-Pick a concrete named design style instead of "modern" (e.g. neo-brutalism, swiss, editorial, glassmorphism, bento grid, synthwave, claymorphism, wabi-sabi, Y2K, cyberpunk). Define: one font pairing, background color, one accent color, corner radius, shadow style. Back these choices with `ui-ux-pro-max` (search its styles, palettes and font pairings for the product type) instead of picking from memory. Never default to purple gradients or centered-hero + three-card grids.
+Propose **three style directions** in the Phase 0 plan. They must differ in all of: named style (e.g. neo-brutalism, swiss, editorial, glassmorphism, bento grid, synthwave, claymorphism, wabi-sabi, Y2K, cyberpunk), page structure, font pairing, palette and motion level. Rules for variety:
 
-For page layouts (WEB), load `hallmark` and use its macrostructure catalog to pick a page structure that fits the brief (not the usual hero → 3 features → CTA rhythm). Keep the Phase 1 style decision; if hallmark's theme picker disagrees, mention it as the alternative.
+- Build the options fresh for each brief from `ui-ux-pro-max` (styles, palettes, font pairings for the product type) and, for WEB, `hallmark`'s macrostructures and genres. Don't reach for the same favourite every time.
+- Look at DESIGN.md files of sibling projects (`../*/DESIGN.md`) if they exist. No option may reuse the style, font pairing or palette of one of them unless the user asks for consistency.
+- At most one option may be built around a single look-defining skill's signature aesthetic (hallmark theme, apple-design look, a getdesign brand). At least one option is your own direction.
+- Never default to purple gradients or centered-hero + three-card grids.
+
+Each option names which "choose" skills it would use. After the user picks, define for the chosen direction: one font pairing, background color, one accent color, corner radius, shadow style, motion level. The look skills of the unpicked options are not applied. They may still be used as reviewers for objective problems (spacing, contrast, hierarchy), never to push their own aesthetic.
 
 ## Phase 2 — DESIGN.md (WEB)
 
 If the project root has no DESIGN.md:
-- If a real brand look fits (Linear, Stripe, Vercel, Notion, …), download it from `https://getdesign.md/<brand>/design-md` (fallback: GitHub VoltAgent/awesome-design-md).
-- Otherwise write a short DESIGN.md yourself from the Phase 1 decisions (colors, type scale, spacing scale, radius, shadows, component rules, do's and don'ts).
+- If the picked direction is a real brand look (Linear, Stripe, Vercel, Notion, …), download it from `https://getdesign.md/<brand>/design-md` (fallback: GitHub VoltAgent/awesome-design-md).
+- Otherwise write a short DESIGN.md yourself from the Phase 1 decisions (colors, type scale, spacing scale, radius, shadows, motion level, component rules, do's and don'ts).
 
-All later UI work must follow DESIGN.md.
+All later UI work must follow DESIGN.md. DESIGN.md wins over any skill's default style.
 
 ## Phase 3 — Build (WEB, CODE)
 
-WEB: Load and follow the `design-taste-frontend` skill and the `impeccable` skill while building. Use realistic copy, never lorem ipsum. Default stack: single index.html with vanilla JS for small things; Vite + React only when the project needs state across many views or the user asks for it. Charts: BKlit UI if it fits, Recharts as fallback.
+WEB: Follow `design-taste-frontend` and `impeccable` for craft — hierarchy, spacing, typography quality, avoiding generic AI output — inside the picked direction and DESIGN.md, not instead of them. Use realistic copy, never lorem ipsum. Default stack: single index.html with vanilla JS for small things; Vite + React only when the project needs state across many views or the user asks for it. Charts: BKlit UI if it fits, Recharts as fallback.
 
 Also load `emil-design-eng` for component-level polish (states, details, feel). When a library choice comes up (toasts, OTP, command menu, drag and drop, virtualization …), suggest the user runs `/auto-kit:pick-ui-library` (it only starts on explicit invocation). Run every piece of visible copy through `humanizer` before it ships.
 
@@ -70,7 +80,7 @@ WEB and CODE: for app logic (state, data handling, calculations, game rules — 
 
 ## Phase 4 — Motion (WEB)
 
-Always runs for WEB. Pages and landing pages: entrance of hero, scroll reveals, state changes. Tools, dashboards and forms: keep it to feedback and state changes (hover, press, loading, success/error, panel open/close) — no decorative motion unless the user wants it. Use GSAP + ScrollTrigger from cdnjs for anything beyond simple CSS transitions. Always respect `prefers-reduced-motion`. For each animation, follow `animate` (decides whether it should animate at all, curve, duration, interruption). Use `apple-design` for the feel of every interactive component and for drag, swipe, sheets, springs and other gesture-driven UI. Check all motion against `animation-performance`.
+Follow the motion level picked in Phase 1. "None" still covers basic feedback (hover, press, focus, loading, success/error). "Subtle" adds entrances and state changes. "Rich" adds scroll reveals and scroll-linked effects with GSAP + ScrollTrigger from cdnjs. Always respect `prefers-reduced-motion`. For each animation, follow `animate` (decides whether it should animate at all, curve, duration, interruption) and check it against `animation-performance`. For drag, swipe, sheets, springs and other gesture-driven UI, use `apple-design`'s motion physics — its visual aesthetic only if that direction was picked.
 
 ## Phase 5 — Test (WEB, 3D)
 
@@ -85,7 +95,7 @@ Use `playwright-cli`:
 
 ## Phase 6 — Polish (WEB, CODE)
 
-WEB: Run impeccable's audit/polish pass, `hallmark audit` and an `apple-design` review over the finished UI and fix what they find. Run `find-animation-opportunities` and apply only clear wins. `review-animations` can only be started by the user — tell them to run `/auto-kit:review-animations` for a strict motion review.
+WEB: Run impeccable's audit/polish pass and `hallmark audit` (its anti-pattern check, not its themes) over the finished UI and fix what they find — as long as the fix stays inside DESIGN.md. Run `find-animation-opportunities` and apply only clear wins that match the motion level. `review-animations` can only be started by the user — tell them to run `/auto-kit:review-animations` for a strict motion review.
 
 WEB and CODE: get a structured review with superpowers `requesting-code-review` and fix what it finds. Then report a short before/after list.
 
@@ -98,53 +108,55 @@ If a reference image exists in the project, use `/img2threejs` to rebuild it as 
 - Direction for every video — script, storyboard, timing, sound design → the motion graphics skill (Miftahul).
 - Rendering in Remotion (default for data-driven or template videos: charts, bar races, swappable JSON data) → Remotion best practices skill.
 
-Always: 9:16 1080x1920 unless told otherwise. Show a storyboard with second-by-second timings first and wait for OK before rendering. Only generated or royalty-free audio. Render to `./out/`. Run the script, on-screen text and caption through `humanizer` before rendering.
+Always: 9:16 1080x1920 unless told otherwise. Offer the Phase 1 style directions for the video's look too. Show a storyboard with second-by-second timings first and wait for OK before rendering. Only generated or royalty-free audio. Render to `./out/`. Run the script, on-screen text and caption through `humanizer` before rendering.
 
 ## Skill bundles
 
-One row per skill. "Bundles" says for which project types the skill is mandatory. "Only skip if" is the complete list of valid reasons to leave it out — if the condition isn't true, use the skill.
+One row per skill. "Bundles" = project types the skill is relevant for. "Mode": **always** = run it on every matching project; **choose** = only via a style direction the user picked in Phase 1; **if** = only when the condition is true.
 
-| Skill | Phase | Bundles | Only skip if |
+| Skill | Phase | Bundles | Mode |
 |---|---|---|---|
-| brainstorming (superpowers) | 0 | WEB, 3D, VIDEO, CODE | Single static page or single small script with a complete brief |
-| writing-plans + executing-plans (superpowers) | 0 → 3 | WEB, 3D, VIDEO, CODE | The build is one step / one view |
-| ui-ux-pro-max | 1 | WEB, 3D, VIDEO | — |
-| hallmark | 1, 6 | WEB, 3D | — |
-| DESIGN.md / getdesign | 2 | WEB, 3D | — |
-| design-taste-frontend | 3 | WEB, 3D | — |
-| impeccable | 3, 6 | WEB, 3D | — |
-| emil-design-eng | 3 | WEB, 3D | — |
-| pick-ui-library | 3 | WEB, 3D | Manual only: tell the user when a library choice comes up |
-| test-driven-development (superpowers) | 3 | WEB, 3D, CODE | No app logic at all (pure layout/content) |
-| systematic-debugging (superpowers) | any | WEB, 3D, VIDEO, CODE | No bug occurred |
-| diagram-design | 3 / docs | WEB, 3D, CODE | Only one component and no diagram on the page or in the README |
-| humanizer | 3, 8, docs | WEB, 3D, VIDEO, CODE | No text gets published (no copy, README, script or caption) |
-| GSAP | 4 | WEB, 3D | Only plain CSS transitions are needed |
-| animate | 4 | WEB, 3D | — |
-| apple-design | 4, 6 | WEB, 3D | — |
-| animation-performance | 4 | WEB, 3D | — |
-| playwright-cli | 5 | WEB, 3D | — |
-| break-ui | 5 | WEB, 3D | — |
-| web-design-guidelines | 5 | WEB, 3D | — |
-| web-security-checklist | 5 | WEB, 3D; CODE with network, API keys, user data or hosting | — |
-| find-animation-opportunities | 6 | WEB, 3D | — |
-| review-animations | 6 | WEB, 3D | Manual only: tell the user to run `/auto-kit:review-animations` |
-| improve-animations | 6 | WEB, 3D | New project (it is for existing projects with a lot of motion code) |
-| requesting-code-review (superpowers) | 6 | WEB, 3D, CODE | — |
-| verification-before-completion (superpowers) | end | WEB, 3D, VIDEO, CODE | — |
-| img2threejs | 7 | 3D | No reference image exists (then build the model by hand in Three.js and say so) |
-| motion graphics skill (Miftahul) | 8 | VIDEO | — |
-| Remotion best practices | 8 | VIDEO | The video is not rendered with Remotion |
+| brainstorming (superpowers) | 0 | WEB, 3D, VIDEO, CODE | always, except a single static page or small script with a complete brief |
+| writing-plans + executing-plans (superpowers) | 0 → 3 | WEB, 3D, VIDEO, CODE | if the build has several steps or views |
+| ui-ux-pro-max | 1 | WEB, 3D, VIDEO | always (source for the style directions) |
+| hallmark — themes, genres, macrostructures | 1 | WEB, 3D | choose |
+| hallmark audit | 6 | WEB, 3D | always |
+| DESIGN.md — getdesign brand file | 2 | WEB, 3D | choose (own DESIGN.md is always written) |
+| design-taste-frontend | 3 | WEB, 3D | always, inside DESIGN.md |
+| impeccable | 3, 6 | WEB, 3D | always, inside DESIGN.md |
+| emil-design-eng | 3 | WEB, 3D | always |
+| pick-ui-library | 3 | WEB, 3D | if a library choice comes up — tell the user (manual only) |
+| test-driven-development (superpowers) | 3 | WEB, 3D, CODE | if there is app logic |
+| systematic-debugging (superpowers) | any | WEB, 3D, VIDEO, CODE | if a bug occurs |
+| diagram-design | 3 / docs | WEB, 3D, CODE | if more than one component, or a diagram is wanted on the page or in the README |
+| humanizer | 3, 8, docs | WEB, 3D, VIDEO, CODE | always when text gets published |
+| GSAP | 4 | WEB, 3D | if motion level "rich" or anything beyond CSS transitions |
+| animate | 4 | WEB, 3D | always |
+| apple-design — motion physics | 4 | WEB, 3D | if gesture-driven UI (drag, swipe, sheets, springs) |
+| apple-design — visual aesthetic | 1, 6 | WEB, 3D | choose |
+| animation-performance | 4 | WEB, 3D | always |
+| playwright-cli | 5 | WEB, 3D | always |
+| break-ui | 5 | WEB, 3D | always |
+| web-design-guidelines | 5 | WEB, 3D | always |
+| web-security-checklist | 5 | WEB, 3D; CODE with network, API keys, user data or hosting | always |
+| find-animation-opportunities | 6 | WEB, 3D | always, within the picked motion level |
+| review-animations | 6 | WEB, 3D | tell the user to run `/auto-kit:review-animations` (manual only) |
+| improve-animations | 6 | WEB, 3D | if it's an existing project with a lot of motion code |
+| requesting-code-review (superpowers) | 6 | WEB, 3D, CODE | always |
+| verification-before-completion (superpowers) | end | WEB, 3D, VIDEO, CODE | always |
+| img2threejs | 7 | 3D | if a reference image exists |
+| motion graphics skill (Miftahul) | 8 | VIDEO | always |
+| Remotion best practices | 8 | VIDEO | if the video is rendered with Remotion |
 
-<!-- Maintained by the weekly automated task. Every new skill gets a row here (with its phase, bundles and the only valid skip reason) and is wired into that phase's text. -->
+<!-- Maintained by the weekly automated task. Every new skill gets a row here (phase, bundles, mode) and is wired into that phase's text. A skill that imposes its own look (themes, brand styles, signature aesthetics) gets mode "choose"; quality, test and process skills get "always" or "if". -->
 
 ## Rules
 
-- Checkpoint after Phase 0 always; after Phase 3 show the result (screenshot) before Motion/Test unless the user said to run straight through.
-- Before saying anything is done, fixed or working: run superpowers `verification-before-completion` and go through the skill ledger. Every bundle skill must be marked used (with the phase) or skipped by its listed rule. If one is neither, go back and use it.
+- Checkpoint after Phase 0 always (that's where the user picks the style direction); after Phase 3 show the result (screenshot) before Motion/Test unless the user said to run straight through.
+- Before saying anything is done, fixed or working: run superpowers `verification-before-completion` and check that every "always" skill and every true "if" skill was actually used.
 - If a skill or tool is missing, say which one and continue with the best fallback — never stall.
 - Skip superpowers' git skills (`using-git-worktrees`, `finishing-a-development-branch`) unless the project already uses git.
 - superpowers, ui-ux-pro-max and diagram-design come from separate plugins installed on this machine; if one is missing, say so and continue.
-- Keep narration minimal. At the end: what was built, where the files are, and the final skill ledger (used / skipped by rule / told the user).
+- Keep narration minimal. At the end: what was built, where the files are, which style direction and look skills were used, and which skills ran.
 
 License: CC-BY-NC-SA-4.0 — © DerHeimer, https://github.com/DerHeimer/claude-auto-kit (see NOTICE.md)
