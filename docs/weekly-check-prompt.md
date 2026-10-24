@@ -20,7 +20,8 @@ This is the prompt the weekly Claude task runs. Copy it, replace the placeholder
    report that, mark nothing in mymind, and still do steps 2 and 8.
 
 2. Clean-up lists (always, before looking at new items), in the space "<SPACE>":
-   - "Ready to delete": every item tagged "claude-checked" AND "claude-done".
+   - "Ready to delete": every item tagged "claude-installed" — and nothing else.
+     Never offer an item for deletion just because it is checked.
      Do NOT delete anything yourself — mymind needs the owner's confirmation.
      The report asks for it; when the owner replies "delete", delete exactly that list.
    - "Waiting for you": every item tagged "claude-todo" or "claude-unclear".
@@ -46,8 +47,9 @@ This is the prompt the weekly Claude task runs. Copy it, replace the placeholder
    D) Prompt, checklist or workflow → write it as a new skill in your own words.
    E) Not relevant, or a duplicate of <LOCAL_SKILLS> or of anything already in the repo
       → report only.
-   Wire every new skill from A and D into project-pipeline: into the phase it fits, or as
-   a row in its "Extra skills" table. Several items about the same tool = one skill.
+   Wire every new skill from A and D into project-pipeline: add a row to its "Skill bundles"
+   table (phase, project types it is mandatory for, the only valid skip reason) and add it
+   to that phase's text. Several items about the same tool = one skill.
 
 6. Privacy: no personal names or personal details in anything public (file names,
    descriptions, commits, README). Check before pushing.
@@ -56,8 +58,12 @@ This is the prompt the weekly Claude task runs. Copy it, replace the placeholder
    (do not add a "version" field — it would stop auto-updates). Commit directly to main
    and push. Only after a successful push, tag each processed mymind item:
    - "claude-checked"
-   - exactly one status: "claude-done" (A, D, or everything shown is already installed),
-     "claude-todo" (B or C — the owner has to install something),
+   - exactly one status:
+     "claude-installed" — ONLY if 100 % of what the item shows is installed: every tool,
+       skill or checklist it names is now in the repo (A, D) or appears in <LOCAL_SKILLS>.
+       Check each named tool one by one. If a single one is missing, unidentified or only
+       partly covered, use one of the statuses below instead and say what's missing.
+     "claude-todo" (B or C, or partly installed — the owner has to install something),
      "claude-unclear" (tool not identifiable),
      "claude-keep" (nothing to install, but worth keeping: knowledge, inspiration,
      non-Claude tools)
@@ -71,8 +77,8 @@ This is the prompt the weekly Claude task runs. Copy it, replace the placeholder
    blocks), "Ready to delete" (titles, ending with: reply "delete" and they're removed),
    "Added", "Skipped", commit link, next run.
 
-When the owner says a tool is installed: tag the matching "claude-todo" items
-"claude-done" instead. When the owner explains an unclear item: act on it and replace
+When the owner says a tool is installed: re-check the matching "claude-todo" items and
+switch them to "claude-installed" only if nothing else on them is still missing. When the owner explains an unclear item: act on it and replace
 "claude-unclear" with the right status.
 ```
 
